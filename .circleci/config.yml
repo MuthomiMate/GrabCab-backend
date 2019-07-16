@@ -36,7 +36,7 @@ jobs:
           command: ./cc-test-reporter before-build
       - run:
          name: Running Tests with Coverage
-         command: yarn test:cover
+         command: yarn test:cov
       - run:
          name: Reporting Coverage to CodeClimate
          command: ./cc-test-reporter after-build --exit-code $?
