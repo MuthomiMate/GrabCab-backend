@@ -9,6 +9,6 @@ module.exports = {
     "username": envVars.DATABASE_USERNAME,
     "password": envVars.DATABASE_PASSWORD,
     "database": envVars.DATABASE_NAME,
-    "entities": ["src/**/*.entity.ts"],
+    entities: ['dist/**/*.entity.js'],
     "synchronize": true
 }
