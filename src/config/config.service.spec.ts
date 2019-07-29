@@ -9,7 +9,7 @@ describe('ConfigService', () => {
       providers: [
         {
         provide: ConfigService,
-        useValue: 'test'
+        useValue: 'test',
       }],
     }).compile();
 
