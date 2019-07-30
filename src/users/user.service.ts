@@ -14,7 +14,7 @@ export class UserService {
         return await this .userRepository.find();
     }
 
-    async create(user: User): Promise< User>{
+    async create(user: User): Promise< User> {
         return await this .userRepository.save(user);
     }
 }

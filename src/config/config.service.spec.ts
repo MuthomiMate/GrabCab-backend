@@ -13,7 +13,7 @@ describe('ConfigService', () => {
       }],
     }).compile();
 
-    service = module.get<ConfigService>(ConfigService);
+    service = module.get< ConfigService>(ConfigService);
   });
 
   it('should be defined', () => {

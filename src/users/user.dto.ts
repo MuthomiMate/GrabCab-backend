@@ -1,11 +1,11 @@
 import {
-    IsString, IsEmail, IsNumber, IsEnum, IsNotEmpty
+    IsString, IsEmail, IsEnum, IsNotEmpty,
 }  from 'class-validator';
 
-const role = [ 'rider', 'driver'];
+// const role = [ 'rider', 'driver'];
 export class CreateUserDto {
     @ IsNotEmpty()
-    id: string
+    id: string;
 
     @ IsString()
     firstName: string;

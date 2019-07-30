@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigService } from './config.service';
 import 'dotenv/config';
 
-@Module({
+@ Module({
     providers: [
         {
             provide: ConfigService,
