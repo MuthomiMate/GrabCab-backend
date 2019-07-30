@@ -9,11 +9,11 @@ describe('ConfigService', () => {
       providers: [
         {
         provide: ConfigService,
-        useValue: 'test'
+        useValue: 'test',
       }],
     }).compile();
 
-    service = module.get<ConfigService>(ConfigService);
+    service = module.get< ConfigService>(ConfigService);
   });
 
   it('should be defined', () => {

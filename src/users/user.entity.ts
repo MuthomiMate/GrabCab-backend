@@ -1,25 +1,28 @@
 import { Entity, Column, PrimaryColumn } from 'typeorm';
 
-@Entity()
+@ Entity()
 export class User {
-    @PrimaryColumn()
+    @ PrimaryColumn()
     id: string;
 
-    @Column()
+    @ Column()
     firstName: string;
 
-    @Column()
+    @ Column()
     lastName: string;
 
-    @Column()
+    @ Column()
     fullName: string;
 
-    @Column("integer")
-    mobile: number;
+    @ Column()
+    email: string;
 
-    @Column()
+    @ Column()
+    mobile: string;
+
+    @ Column()
     role: string;
 
-    @Column()
+    @ Column()
     drivingLicense: string;
 }

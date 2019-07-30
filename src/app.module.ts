@@ -5,8 +5,6 @@ import { ConfigModule } from './config/config.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './users/user.module';
 
-const envVars = process.env;
-
 @Module({
   imports: [ConfigModule, TypeOrmModule.forRoot(), UserModule],
   controllers: [AppController],
