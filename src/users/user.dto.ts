@@ -1,11 +1,8 @@
 import {
-    IsString, IsEmail, IsEnum, IsNotEmpty,
+    IsString, IsEmail, IsEnum,
 }  from 'class-validator';
 
-// const role = [ 'rider', 'driver'];
 export class CreateUserDto {
-    @ IsNotEmpty()
-    id: string;
 
     @ IsString()
     firstName: string;
@@ -13,19 +10,42 @@ export class CreateUserDto {
     @ IsString()
     lastName: string;
 
-    @ IsString()
-    fullName: string;
-
     @ IsEmail()
     email: string;
 
     @ IsString()
     mobile: string;
 
-    // @IsEnum(role: string)
+    @ IsEnum(['driver', "rider"])
     role: string;
 
     @ IsString()
     drivingLicense: string;
 
+    @ IsString()
+    password: string;
+
+}
+
+export class updateUserInput {
+    @ IsString()
+    firstName?: string;
+
+    @ IsString()
+    lastName?: string;
+
+    @ IsEmail()
+    email?: string;
+
+    @ IsString()
+    mobile?: string;
+
+    // @IsEnum(role: string)
+    role?: string;
+
+    @ IsString()
+    drivingLicense?: string;
+
+    @ IsString()
+    password?: string;
 }
