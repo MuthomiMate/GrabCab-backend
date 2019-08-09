@@ -13,17 +13,17 @@ export class UserService {
     ) { }
 
     async findAll(): Promise< User[]> {
-        return await this .userRepository.find({active: true});
+        return this .userRepository.find({active: true});
     }
 
     async findOne(id: string): Promise< User> {
-        return await this .userRepository.findOne({id});
+        return this .userRepository.findOne({id});
     }
 
     async delete(id: string): Promise< boolean> {
         const user = await this .userRepository.findOne({id})
         user.active = false;
-        return await this .userRepository.save(user)? true: false;
+        return this .userRepository.save(user)? true: false;
     }
 
     async create(input: CreateUserDto): Promise< User> {
@@ -41,7 +41,7 @@ export class UserService {
         user.password= password
         user.drivingLicense = drivingLicense;
         user.active = true;
-        return await this .userRepository.save(user);
+        return this .userRepository.save(user);
     }
 
     async update(id:string, input: updateUserInput): Promise< User> {
@@ -57,6 +57,6 @@ export class UserService {
         user.role = role || user.role;
         user.password= password || user.password
         user.drivingLicense = drivingLicense || user.drivingLicense;
-        return await this .userRepository.save(user);
+        return this .userRepository.save(user);
     }
 }
