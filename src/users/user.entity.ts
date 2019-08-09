@@ -21,8 +21,14 @@ export class User {
     mobile: string;
 
     @ Column()
+    password: string
+
+    @ Column()
     role: string;
 
     @ Column()
     drivingLicense: string;
+
+    @ Column()
+    active: boolean;
 }
