@@ -52,7 +52,6 @@ describe('ConfigService', () => {
   });
 
   it('should return all Users for findAll', async () => {
-    // jest.spyOn(repo, 'find').mockResolvedValue(Promise.resolve([testUsers]));
     repositoryMock.find.mockReturnValue([testUsers])
     const users = await service.findAll();
     expect(users).toBeInstanceOf(Array);

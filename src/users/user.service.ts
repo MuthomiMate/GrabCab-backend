@@ -1,9 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { CreateUserDto, updateUserInput } from './user.dto';
 import pushid = require('pushid');
+import bcrypt = require('bcryptjs');
 
 @ Injectable()
 export class UserService {
@@ -14,6 +15,12 @@ export class UserService {
 
     async findAll(): Promise< User[]> {
         return this .userRepository.find({active: true});
+    }
+    async hashPassword(password: string): Promise< string> {
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+        if(!hashedPassword) throw new InternalServerErrorException();
+        return hashedPassword;
     }
 
     async findOne(id: string): Promise< User> {
@@ -32,13 +39,14 @@ export class UserService {
         const {
             firstName, lastName, email, mobile, role, drivingLicense, password
         } = input;
+        const hashedPassword = await this .hashPassword(password);
         user.firstName = firstName;
         user.lastName = lastName;
         user.fullName = `${firstName} ${lastName}`;
         user.email = email;
         user.mobile = mobile;
         user.role = role;
-        user.password= password
+        user.password = hashedPassword
         user.drivingLicense = drivingLicense;
         user.active = true;
         return this .userRepository.save(user);
