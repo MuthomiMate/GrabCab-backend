@@ -26,6 +26,9 @@ export class UserService {
     async findOne(id: string): Promise< User> {
         return this .userRepository.findOne({id});
     }
+    async findByEmail(email: string): Promise< User> {
+        return this .userRepository.findOne({email});
+    }
 
     async delete(id: string): Promise< boolean> {
         const user = await this .userRepository.findOne({id})
@@ -53,7 +56,7 @@ export class UserService {
     }
 
     async update(id:string, input: updateUserInput): Promise< User> {
-        const user = await this .userRepository.findOne({id})
+        const user = await this .userRepository.findOne({id});
         const {
             firstName, lastName, email, mobile, role, drivingLicense, password
         } = input;
