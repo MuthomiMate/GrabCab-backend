@@ -3,6 +3,7 @@ import { ConfigModule } from './config/config.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './users/user.module';
 import { GraphQLModule } from '@nestjs/graphql';
+import { AuthModule } from './auth/auth.module';
 
 @ Module({
   imports: [
@@ -11,8 +12,10 @@ import { GraphQLModule } from '@nestjs/graphql';
     UserModule,
     GraphQLModule.forRoot({
       typePaths: ['./**/*.graphql'],
-      playground: true
-    })
+      playground: true,
+      context: ({ req }) => ({ req })
+    }),
+    AuthModule
   ]
 })
 export class AppModule {}
