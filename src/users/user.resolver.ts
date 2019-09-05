@@ -18,7 +18,7 @@ export class UserResolver {
     @ UseGuards(GqlAuthGuard)
     @ Query(()=> User)
     async user(@ Args('id') id: string){
-        return await this .userService.findOne(id);
+        return await this .userService.findOne('id', id);
     }
 
     @ Mutation(() => Boolean )
