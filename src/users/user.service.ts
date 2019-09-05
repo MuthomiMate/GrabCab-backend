@@ -23,8 +23,8 @@ export class UserService {
         return hashedPassword;
     }
 
-    async findOne(id: string): Promise< User> {
-        return this .userRepository.findOne({id});
+    async findOne(name: string, value: string): Promise< User> {
+        return this .userRepository.findOne({[name]: value});
     }
 
     async delete(id: string): Promise< boolean> {
@@ -53,7 +53,7 @@ export class UserService {
     }
 
     async update(id:string, input: updateUserInput): Promise< User> {
-        const user = await this .userRepository.findOne({id})
+        const user = await this .userRepository.findOne({id});
         const {
             firstName, lastName, email, mobile, role, drivingLicense, password
         } = input;

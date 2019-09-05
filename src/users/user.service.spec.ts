@@ -60,7 +60,7 @@ describe('ConfigService', () => {
 
   it('should return a single user', async () => {
     repositoryMock.findOne.mockReturnValue(testUsers)
-    const users = await service.findOne(testUsers.id);
+    const users = await service.findOne('id', testUsers.id);
     expect(users).toBeInstanceOf(Object);
     expect(users).toEqual(testUsers);
   });

@@ -1,0 +1,21 @@
+type User {
+    id: String!
+    firstName: String!
+    lastName: String!
+    fullName: String!
+    email: String!
+    password: String!
+    mobile: String!
+    role: String!
+    drivingLicense: String!
+    active: Boolean!
+}
+type LoginResponse {
+    access_token: String
+    id: String
+}
+
+
+type Mutation {
+    login(email: String!, password: String!): LoginResponse
+}
