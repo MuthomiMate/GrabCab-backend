@@ -12,7 +12,6 @@ export class UserResolver {
     @ UseGuards(GqlAuthGuard)
     @ Query(()=> [User])
     async users() {
-        console.log('am called')
         return this .userService.findAll();
     }
 

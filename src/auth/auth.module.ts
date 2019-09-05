@@ -12,7 +12,7 @@ const jwtSecret = process.env.JWT_SECRET;
   imports: [UserModule, PassportModule.register({
     defaultStrategy: 'jwt'
   }), JwtModule.register({
-    secretOrPrivateKey: jwtSecret,
+    secret: jwtSecret,
     signOptions: {expiresIn: '1d'}
   })],
   providers: [AuthService, AuthResolver, LocalStrategy,
