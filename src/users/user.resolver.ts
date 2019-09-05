@@ -21,16 +21,18 @@ export class UserResolver {
         return await this .userService.findOne('id', id);
     }
 
+    @ UseGuards(GqlAuthGuard)
     @ Mutation(() => Boolean )
     async deleteUser(@ Args('id') id: string){
         return await this .userService.delete(id)
     }
 
+    @ UseGuards(GqlAuthGuard)
     @ Mutation(() => User)
     async createUser(@ Args('input') input: CreateUserDto){
         return await this .userService.create(input);
     }
-
+    @ UseGuards(GqlAuthGuard)
     @ Mutation(() => User)
     async updateUser(
         @ Args('id') id: string,
