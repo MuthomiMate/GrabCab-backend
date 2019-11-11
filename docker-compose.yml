@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  taxi_app_backend:
+    image: node:8-alpine
+    container_name: taxi_app_backend
+    command: sh -c "yarn install; yarn start:dev"
+    volumes:
+      - ./:/usr/src
+    ports:
+      - 3000:3000
+    working_dir: /usr/src
+    environment:
+      - DATABASE_URL=postgres://muthomi@db:5432/grabcab
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=muthomi
+      - POSTGRES_PASSWORD=null
+      - POSTGRES_DB=grabcab
